@@ -20,7 +20,7 @@ import time
 ####################
 __script_path__ = sys.argv[0]
 __script_name__ = __script_path__.split('/')[-1].split('\\')[-1]
-__version__ = '1.0.2'
+__version__ = '0.5'
 
 
 ########

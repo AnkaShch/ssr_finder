@@ -1,15 +1,10 @@
 import argparse
 import logging
 import multiprocessing as mp
-import os
 import pyfaidx
-import regex
-import six
-import shutil
 import sys
-import time
 
-from finder import __script_name__, __version__, rev_comp, make_degenerate_regex, RepeatRegionStat, fasta_motif_scan
+from finder import __script_name__, __version__, fasta_motif_scan
 
 
 def main():
@@ -19,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser(prog=__script_name__, epilog="%s v%s" % (__script_name__, __version__))
 
     # FASTA index will be created if it does not exist when pyfaidx Fasta is initialized
-    parser.add_argument('fastaFile', help="Path to FASTA file to be scanned for degenerate sequence motifs.")
+    parser.add_argument('fastaFile', help="Path to FASTA file.")
     parser.add_argument('--motif', '-m', help="A degenerate sequence motif. Can be specified multiple times.",
                         action='append')
     parser.add_argument('--motif_file',

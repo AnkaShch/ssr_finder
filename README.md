@@ -11,6 +11,7 @@ $ git clone https://github.com/AnkaShch/ssr_finder.git
 ## Usage
 The help message and available options can be accessed using
 ```
+$ cd ssr_finder
 $ python ./__main__.py --help
 $ python ./--main__.py -h
 ```

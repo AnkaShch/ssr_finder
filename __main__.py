@@ -127,7 +127,7 @@ def main():
 
             for curr_motif in args.motif:
                 for curr_strand in run_strands:
-                    region_list.append((curr_motif, contig, start, end, curr_strand, args.distance))
+                    region_list.append((curr_motif, contig, start, end, curr_strand, args.distance, args.number))
 
                     logger.debug("%s\n" % (str(region_list[-1])))
 
@@ -183,8 +183,6 @@ def main():
 
     for idx in result_order:
         for (repeat_region, seq) in work_output[idx][1]:
-            print(repeat_region.to_string())
-            print(seq)
             out.write("%s\t%s\n" % (repeat_region.to_string(), seq))
             out_full.write("%s\t%s\n" % (repeat_region.to_string_full(), seq))
 

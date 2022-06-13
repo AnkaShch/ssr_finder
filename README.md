@@ -74,7 +74,7 @@ The details of each option are given below:
 
 **Default:** _None_
 
-It is position argument with path to FASTA file. It have not specific flag.
+It is position argument with path to FASTA file. It has not specific flag.
 
 **`--output_prefix or -o`**
 

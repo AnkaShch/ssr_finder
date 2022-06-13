@@ -152,7 +152,7 @@ def fasta_motif_scan(fasta_fname, input_tuples, regex_ready=False, allow_overlap
     """
 	fasta_fname = string path to FASTA file
 	input_tuples = tuple containing (1) motif sequence, (2) contig name, (3) start position*, (4) end position,
-		(5) strand to search, (6) maximum distance between motif
+		(5) strand to search, (6) maximum distance between motif, (7) minimum number of motifs in repeat
 
 	*start is expected to be 0-base, end is expected to be 1-base
 	"""
@@ -173,7 +173,7 @@ def fasta_motif_scan(fasta_fname, input_tuples, regex_ready=False, allow_overlap
     #########################
     # setup some local vars #
     #########################
-    motif_seq, contig, start, end, strand, distance = input_tuples
+    motif_seq, contig, start, end, strand, distance, number = input_tuples
 
     if regex_ready == False:
         if strand == '+':
@@ -205,7 +205,7 @@ def fasta_motif_scan(fasta_fname, input_tuples, regex_ready=False, allow_overlap
                 repeat_region.add(m, start)
             else:
                 # want only more then 1 motif in repeat
-                if repeat_region.motif_numb > 1:
+                if repeat_region.motif_numb >= number:
                     site_count += 1
                     site = get_seq(repeat_region, sequence, start)
                     site_list.append((repeat_region, site))
@@ -213,7 +213,7 @@ def fasta_motif_scan(fasta_fname, input_tuples, regex_ready=False, allow_overlap
                 repeat_region = RepeatRegionStat(motif_seq, contig, start, strand, molecule)
                 repeat_region.add(m, start)
 
-    if repeat_region.motif_numb > 1:
+    if repeat_region.motif_numb >= number:
         site_count += 1
         site = get_seq(repeat_region, sequence, start)
         site_list.append((repeat_region, site))

@@ -23,7 +23,7 @@ def main():
     parser.add_argument('--output_prefix', '-o', help="Prefix of generated bed files. Default is detected_ssrs",
                         default="detected_ssrs")
     parser.add_argument('--region', '-r',
-                        help="Defines region to search for sites. Use 'contig:start-end' for regions, or 'contig' for whole contig. If no regions are specified, the entire FASTA file will be searched! Starts expected to be *0 start* start and Ends *1 start*",
+                        help="Defines region to search for sites. Use 'contig:start-end' for regions, or 'contig' for whole contig. If no regions are specified, the entire FASTA file will be searched! 0-based format, start is included, end in not included",
                         action='append', required=False)
     parser.add_argument('--cores', '-p', help="Run search on multiple contigs / strands simultaneously", type=int,
                         default=1)
@@ -37,8 +37,8 @@ def main():
                         help="The minimum number of motives in one SSR. Default is 2.",
                         type=int, default=2)
     # molecule
-    parser.add_argument('--search_strand', '-s', help="Default searches both strands, but can be set to only one.",
-                        choices=['+1', '-1', 'both'], default='both')
+    parser.add_argument('--strand', '-s', help="Default searches both strands, but can be set to only one.",
+                        choices=['+', '-', 'both'], default='both')
     parser.add_argument('--no_motif_overlaps', help="If this option is set it turns off overlapping motif matches.",
                         default=True, action='store_false')
     parser.add_argument("--loglevel", choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], default='INFO')
@@ -57,9 +57,9 @@ def main():
     ########################
     allow_overlapping_motifs = not args.no_motif_overlaps
 
-    if args.search_strand == "both":
+    if args.strand == "both":
         run_strands = ('+', '-')
-    elif args.search_strand == '-1':
+    elif args.strand == '-':
         run_strands = ('-',)
     else:
         run_strands = ('+',)

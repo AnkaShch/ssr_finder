@@ -20,7 +20,8 @@ $ pip install regex>=2016.01.10
 Use a simple command to test the tool:
 
 ```
-python __main__.py sample_data\data.fasta -m TTAGGG -o test_TTAGGG
+$ cd ssr_finder
+$ python __main__.py sample_data\data.fasta -m TTAGGG -o test_TTAGGG
 ```
 
 The file `test_TTAGGG.bed` should contain the following:
@@ -42,7 +43,6 @@ chr2	554	566	TTAGGG	12	+	2	TTAGGGTTAGGG
 
 The help message and available options can be accessed using
 ```
-$ cd ssr_finder
 $ python ./__main__.py --help
 ```
 which gives the following output

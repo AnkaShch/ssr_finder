@@ -17,7 +17,9 @@ $ pip install regex>=2016.01.10
 ## Usage
 Use a simple command to test the tool:
 
-`python __main__.py sample_data\data.fasta -m TTAGGG -o test_TTAGGG`
+```
+python __main__.py sample_data\data.fasta -m TTAGGG -o test_TTAGGG
+```
 
 The file `test_TTAGGG.bed` should contain the following:
 

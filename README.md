@@ -109,7 +109,7 @@ The output is a tab-delimited file, with one SSR record per line. The output col
 | Length of inserts* | Total length of inserts between motifs in repeat                               |
 | Sequence           | The found repeat sequence                                                      |
 
-* -- columns present only in full bed file (*_full.bed).
+\* -- columns present only in full bed file (*_full.bed).
 
 **`--region or -r`**
 

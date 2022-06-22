@@ -1,6 +1,8 @@
 # SSR Finder
 ## Introduction
-ssr_finder is a tool for searching for short tandem repeats for a given motive in FASTA sequence files.
+ssr_finder is a tool for searching for short tandem repeats for a given motive in FASTA sequence files. Our algorithm is based on the idea of the [motif_scaper](https://github.com/RobersonLab/motif_scraper) tool.
+
+ssr_finder is crossplatformed tool. It is compatible with python 3 (tested on 3.8).
 
 ## Installation
 ssr_finder can be installed from the source code:

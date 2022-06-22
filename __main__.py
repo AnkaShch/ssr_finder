@@ -39,8 +39,8 @@ def main():
     # molecule
     parser.add_argument('--strand', '-s', help="Default searches both strands, but can be set to only one.",
                         choices=['+', '-', 'both'], default='both')
-    parser.add_argument('--no_motif_overlaps', help="If this option is set it turns off overlapping motif matches.",
-                        default=True, action='store_false')
+    parser.add_argument('--motif_overlaps', help="If this option is set it turns on overlapping motif matches.",
+                        action='store_true')
     parser.add_argument("--loglevel", choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], default='INFO')
 
     args = parser.parse_args()
@@ -55,7 +55,7 @@ def main():
     ########################
     # fix up input parsing #
     ########################
-    allow_overlapping_motifs = not args.no_motif_overlaps
+    allow_overlapping_motifs = args.motif_overlaps
 
     if args.strand == "both":
         run_strands = ('+', '-')

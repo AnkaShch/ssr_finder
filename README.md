@@ -16,8 +16,8 @@ $ python ./__main__.py --help
 ```
 which gives the following output
 ```
-usage: __main__.py [-h] [--motif MOTIF] [--motif_file MOTIF_FILE] [--output_prefix OUTPUT_PREFIX] [--region REGION] [--cores CORES] [--valid_regex] [--distance DISTANCE] [--number NUMBER] [--search_strand {+1,-1,both}]
-                   [--no_motif_overlaps] [--loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+usage: __main__.py [-h] [--motif MOTIF] [--motif_file MOTIF_FILE] [--output_prefix OUTPUT_PREFIX] [--region REGION] [--cores CORES] [--valid_regex] [--distance DISTANCE] [--number NUMBER] [--strand {+,-,both}] [--motif_overlaps]
+                   [--loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
                    fastaFile
 
 positional arguments:
@@ -41,10 +41,13 @@ optional arguments:
                         The maximum allowable distance between motifs in bp, within which it is assumed that it all falls into the repeat region. Default is 0.
   --number NUMBER, -n NUMBER
                         The minimum number of motives in one SSR. Default is 2.
-  --search_strand {+1,-1,both}, -s {+1,-1,both}
+  --strand {+,-,both}, -s {+,-,both}
                         Default searches both strands, but can be set to only one.
-  --no_motif_overlaps   If this option is set it turns off overlapping motif matches.
+  --motif_overlaps      If this option is set it turns on overlapping motif matches.
   --loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL}
+
+__main__.py v1.0
+
 ```
 The details of each option are given below:
 
@@ -149,10 +152,10 @@ The minimum number of motives in one SSR. Default is 2.
 This parameter specifies the chain to be searched for. Default is both strand. Use `-s +` to search in a straight chain.
 Use `-s -` to search in a reverse chain. Use `-s both` to search in a both chains. 
 
-**`--no_motif_overlaps`**
+**`--motif_overlaps`**
 
 **Expects:** _None_
 
 **Default:** _None_
 
-If this option is set it turns off overlapping motif matches.
+If this option is set it turns on overlapping motif matches.
